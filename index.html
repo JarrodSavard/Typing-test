@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Typing Test</title>
+    <link rel="stylesheet" href="src/css/styles.css" />
+    <script src="src/js/app.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Word List</h2>
+      <div class="word-list-container">
+        <ul class="word-list"></ul>
+      </div>
+      <div class="input-container">
+        <input type="text" class="word-input" placeholder="Type here" />
+      </div>
+      <div class="score">
+        <div class="correct-words-container">
+          <span class="correct-words-label">Correct </span
+          ><span class="correct-words-count">0</span>
+        </div>
+        <div class="incorrect-words-container">
+          <span class="incorrect-words-label">Incorrect </span
+          ><span class="incorrect-words-count">0</span>
+        </div>
+        <div class="timer-container">
+          <span class="timer">
+            Time Left <span class="time-left timer-full">120</span></span
+          >
+        </div>
+        <div class="wpm-container">
+          <span class="wpm-label">
+            Words Per Minute <span class="wpm-count">0</span></span
+          >
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
