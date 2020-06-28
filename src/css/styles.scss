@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mukta:wght@800&display=swap");
 * {
   padding: 0;
   margin: 0;
@@ -12,6 +14,7 @@ html {
   h2 {
     font-weight: normal;
     font-size: 2rem;
+    font-family: "Mukta", sans-serif;
     text-align: center;
     margin-bottom: 5px;
     text-decoration: underline;
@@ -35,15 +38,15 @@ html {
   font-size: 25px;
 }
 
-.word-list li{
+.word-list li {
+  font-family: "Lato", sans-serif;
   padding: 15px 5px;
   margin: 5px;
 }
 
-.liActive{
+.liActive {
   background: rgba(122, 122, 122, 0.349);
 }
-
 
 .word-input {
   height: 40px;
@@ -56,7 +59,7 @@ html {
   font-size: 1.5rem;
   font-weight: normal;
   color: white;
-  &:focus{
+  &:focus {
     outline: none;
   }
 }
@@ -68,9 +71,11 @@ html {
   margin: 10px auto;
 }
 
-.input-list {}
+.input-list {
+}
 
-.timer-container{}
+.timer-container {
+}
 
 .timer {
   padding: 5px 15px;
@@ -83,7 +88,8 @@ html {
   font-size: 2rem;
 }
 
-.correct-words-label, .wpm-label{
+.correct-words-label,
+.wpm-label {
   padding: 5px 15px;
   border: 1px solid white;
   font-size: 2rem;
@@ -128,9 +134,22 @@ html {
   color: red;
 }
 
-.spelt-right{
+.spelt-right {
   color: green;
 }
-.spelt-wrong{
+.spelt-wrong {
   color: red;
+}
+
+//Screen Size Styles
+
+@media screen and (max-width: 1400px) {
+  .score {
+    flex-direction: column;
+    div{
+      margin: 10px;
+      align-self: center;
+    }
+  }
+  
 }

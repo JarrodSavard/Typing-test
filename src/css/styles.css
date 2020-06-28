@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mukta:wght@800&display=swap");
 * {
   padding: 0;
   margin: 0;
@@ -16,6 +18,7 @@ html {
 .container h2 {
   font-weight: normal;
   font-size: 2rem;
+  font-family: "Mukta", sans-serif;
   text-align: center;
   margin-bottom: 5px;
   text-decoration: underline;
@@ -45,6 +48,7 @@ html {
 }
 
 .word-list li {
+  font-family: "Lato", sans-serif;
   padding: 15px 5px;
   margin: 5px;
 }
@@ -93,7 +97,8 @@ html {
   font-size: 2rem;
 }
 
-.correct-words-label, .wpm-label {
+.correct-words-label,
+.wpm-label {
   padding: 5px 15px;
   border: 1px solid white;
   font-size: 2rem;
@@ -145,5 +150,20 @@ html {
 
 .spelt-wrong {
   color: red;
+}
+
+@media screen and (max-width: 1400px) {
+  .score {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .score div {
+    margin: 10px;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
 }
 /*# sourceMappingURL=styles.css.map */
