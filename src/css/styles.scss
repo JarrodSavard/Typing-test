@@ -71,11 +71,7 @@ html {
   margin: 10px auto;
 }
 
-.input-list {
-}
-
-.timer-container {
-}
+//.input-list {}
 
 .timer {
   padding: 5px 15px;
@@ -146,10 +142,9 @@ html {
 @media screen and (max-width: 1400px) {
   .score {
     flex-direction: column;
-    div{
+    div {
       margin: 10px;
       align-self: center;
     }
   }
-  
 }
