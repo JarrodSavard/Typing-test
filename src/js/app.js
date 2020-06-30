@@ -1,4 +1,4 @@
-// DOM constants
+// constants
 const wordListContainer = document.querySelector(".word-list-container");
 const wordList = document.querySelector(".word-list");
 const userInput = document.querySelector(".word-input");
@@ -22,13 +22,21 @@ fetch(
 
 // space bar event listener
 let completeWord = null;
+let wordIndex = 0;
 
 const spaceBarEventListener = () => {
   userInput.addEventListener("keyup", (e) => {
-    e.code === "Space" ? (userInput.value = "") : console.log(userInput.value);
+    if (e.code === "Space") {
+      wordIndex++;
+      userInput.value = "";
+      wordList.childNodes[wordIndex].classList.add("liActive");
+    }
+    if (wordList.childNodes[wordIndex].classList.contains("liActive")) {
+      wordList.childNodes[wordIndex].classList.remove("liActive");
+    }
   });
 
-  // adding value to completeWord
+  // adding value to completeWord variable
   userInput.addEventListener("keydown", (e) => {
     e.code !== "Space"
       ? (completeWord = completeWord)
@@ -37,10 +45,23 @@ const spaceBarEventListener = () => {
 };
 
 // check to see if user input matches given word
+const checkIfWordMatches = () => {
+  userInput.addEventListener("keyup", () => {
+    let word = [wordList.childNodes[wordIndex].textContent]
+      .toString()
+      .split("");
+      console.log(word)
+    console.log(userInput.value.toString().split(''));   
+    if (word.value != userInput.value) {
+      wordList.childNodes[wordIndex].classList.add("spelt-right");
+    } else {
+      wordList.childNodes[wordIndex].classList.remove("spelt-right");
+      wordList.childNodes[wordIndex].classList.add("spelt-wrong");
+    }
+  });
+};
 
-const checkIfWordMatches = () => {};
-
-// fetching list and creating a index pair of 'words' and 'randomNumber'
+// testing if index pair of 'words' and 'randomNumber'
 const SHOWN_WORDS = 50;
 const WORD_INDEX_CHECK_LIST = [];
 
@@ -56,6 +77,7 @@ const check = () => {
 
 const events = () => {
   spaceBarEventListener();
+  checkIfWordMatches();
   check();
 };
 events();
