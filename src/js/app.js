@@ -74,7 +74,6 @@ const check = () => {
 };
 
 // timer
-//Need to remove overlapping times and remove event listener after first click
 let time = 120;
 const countDown = () => {
   time--;
@@ -84,20 +83,25 @@ const countDown = () => {
     time = 1;
   }
 };
-const setTime = () => {
+const setTime = (e) => {
   setInterval(countDown, 1000);
 };
-const timerStartStop = () => {
-  userInput.addEventListener("keydown", setTime);
+const timerStartListener = () => {
+  userInput.addEventListener("keydown", setTime); 
+};
+const timerStopListener = () => {
+  userInput.addEventListener("keyup", () => {
+    userInput.removeEventListener("keydown", setTime);
+  });
 };
 
 //userInput.removeEventListener('keydown', )
 
 const events = () => {
-  timerStartStop;
   spaceBarEventListener();
   checkIfWordMatches();
-  timerStartStop();
-  check();
+  timerStartListener();
+  timerStopListener();
+  //check();
 };
 events();
