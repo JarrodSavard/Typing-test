@@ -47,16 +47,16 @@ const spaceBarEventListener = () => {
 // check to see if user input matches given word
 const checkIfWordMatches = () => {
   userInput.addEventListener("keyup", () => {
-    let word = [wordList.childNodes[wordIndex].textContent]
+    let count = 0;
+    let word = [wordList.childNodes[count].textContent]
       .toString()
       .split("");
-      console.log(word)
-    console.log(userInput.value.toString().split(''));   
-    if (word.value != userInput.value) {
-      wordList.childNodes[wordIndex].classList.add("spelt-right");
+    let user = userInput.value.split("");
+    if (word !== user) {
+      console.log(word);
+      console.log(user);
+      count++;
     } else {
-      wordList.childNodes[wordIndex].classList.remove("spelt-right");
-      wordList.childNodes[wordIndex].classList.add("spelt-wrong");
     }
   });
 };
