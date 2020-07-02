@@ -78,8 +78,8 @@ let time = 120;
 const countDown = () => {
   time--;
   timeLeft.innerHTML = time;
+
   if (time <= 0) {
-    userInput.removeEventListener("keydown", setTime);
     time = 1;
   }
 };
@@ -87,7 +87,7 @@ const setTime = (e) => {
   setInterval(countDown, 1000);
 };
 const timerStartListener = () => {
-  userInput.addEventListener("keydown", setTime); 
+  userInput.addEventListener("keydown", setTime);
 };
 const timerStopListener = () => {
   userInput.addEventListener("keyup", () => {
