@@ -48,9 +48,7 @@ const spaceBarEventListener = () => {
 const checkIfWordMatches = () => {
   userInput.addEventListener("keyup", () => {
     let count = 0;
-    let word = [wordList.childNodes[count].textContent]
-      .toString()
-      .split("");
+    let word = [wordList.childNodes[count].textContent].toString().split("");
     let user = userInput.value.split("");
     if (word !== user) {
       console.log(word);
@@ -75,9 +73,31 @@ const check = () => {
   console.log(WORD_INDEX_CHECK_LIST);
 };
 
+// timer
+//Need to remove overlapping times and remove event listener after first click
+let time = 120;
+const countDown = () => {
+  time--;
+  timeLeft.innerHTML = time;
+  if (time <= 0) {
+    userInput.removeEventListener("keydown", setTime);
+    time = 1;
+  }
+};
+const setTime = () => {
+  setInterval(countDown, 1000);
+};
+const timerStartStop = () => {
+  userInput.addEventListener("keydown", setTime);
+};
+
+//userInput.removeEventListener('keydown', )
+
 const events = () => {
+  timerStartStop;
   spaceBarEventListener();
   checkIfWordMatches();
+  timerStartStop();
   check();
 };
 events();
