@@ -7,7 +7,7 @@ const incorrectCount = document.querySelector(".incorrect-words-count");
 const timeLeft = document.querySelector(".time-left");
 const wpmCount = document.querySelector(".wpm-count");
 
-fetch(
+const data = fetch(
   "https://gist.githubusercontent.com/deekayen/4148741/raw/98d35708fa344717d8eee15d11987de6c8e26d7d/1-1000.txt"
 )
   .then((response) => response.text())
@@ -34,7 +34,7 @@ const spaceBarEventListener = () => {
       wordIndex++;
       userInput.value = "";
       correctCount.textContent = `${correctUserInput.size}`;
-      wpmCount.textContent = `${(correctUserInput.size / 2).toFixed(2)}`;
+      wpmCount.textContent = `${correctUserInput.size.toFixed(2)}`;
       wordList.childNodes[wordIndex].classList.add("liActive");
       if (
         wordIndex >= 1 &&
@@ -64,9 +64,6 @@ const spaceBarEventListener = () => {
 };
 
 // check to see if user input matches given word
-// ----------------
-// Need to make matches append to a array and to show wpm
-// ----------------
 const correctUserInput = new Set();
 let wrongWordInputs = 0;
 
@@ -88,7 +85,7 @@ const checkIfWordMatches = () => {
       wordList.childNodes[wordIndex].style.color = "red";
       wrongWordInputs++;
       incorrectCount.textContent = wrongWordInputs;
-    } else if (word === userValue && e.code === "Space"){
+    } else if (word === userValue && e.code === "Space") {
       wordList.childNodes[wordIndex].style.color = "green";
       return;
     }
@@ -110,7 +107,7 @@ const check = () => {
 };
 
 // timer
-let time = 120;
+let time = 60;
 const countDown = () => {
   time--;
   timeLeft.innerHTML = time;
