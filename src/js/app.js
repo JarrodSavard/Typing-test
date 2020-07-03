@@ -84,16 +84,19 @@ const checkIfWordMatches = () => {
   userInput.addEventListener("keydown", (e) => {
     const word = wordList.childNodes[wordIndex].textContent;
     const userValue = userInput.value;
-    if (word != userValue && e.code === "Space") {
+    if (word !== userValue && e.code === "Space") {
+      wordList.childNodes[wordIndex].style.color = "red";
       wrongWordInputs++;
       incorrectCount.textContent = wrongWordInputs;
+    } else if (word === userValue && e.code === "Space"){
+      wordList.childNodes[wordIndex].style.color = "green";
+      return;
     }
-    return;
   });
 };
 
-// testing if index pair of 'words' and 'randomNumber'
-const SHOWN_WORDS = 50;
+// testing if index's of 'words' and 'randomNumber' pair
+const SHOWN_WORDS = 125;
 const WORD_INDEX_CHECK_LIST = [];
 
 const check = () => {
@@ -128,8 +131,6 @@ const timerStopListener = () => {
     userInput.removeEventListener("keydown", setTime);
   });
 };
-
-//userInput.removeEventListener('keydown', )
 
 const events = () => {
   spaceBarEventListener();
