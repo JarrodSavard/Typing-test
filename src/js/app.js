@@ -26,37 +26,60 @@ let wordIndex = 0;
 
 const spaceBarEventListener = () => {
   userInput.addEventListener("keyup", (e) => {
+    if (e.code === "Backspace" && wordIndex === 0) {
+      return;
+    }
     if (e.code === "Space") {
+      correctCount.textContent = `${correctUserInput.size}`;
       wordIndex++;
       userInput.value = "";
       wordList.childNodes[wordIndex].classList.add("liActive");
-    }
-    if (wordList.childNodes[wordIndex].classList.contains("liActive")) {
-      wordList.childNodes[wordIndex].classList.remove("liActive");
+      if (wordIndex >= 1 && wordList.childNodes[wordIndex - 1].classList.contains("liActive")) {
+        wordList.childNodes[wordIndex - 1].classList.remove("liActive");
+      }
+    } else if (e.code === "Backspace" && userInput.value === "") {
+      wordIndex--;
+      userInput.value = "";
+      wordList.childNodes[wordIndex].classList.add("liActive");
+      if (wordIndex >= 1 && wordList.childNodes[wordIndex + 1].classList.contains("liActive")) {
+        wordList.childNodes[wordIndex + 1].classList.remove("liActive");
+      }
     }
   });
-
+  
   // adding value to completeWord variable
   userInput.addEventListener("keydown", (e) => {
     e.code !== "Space"
-      ? (completeWord = completeWord)
-      : (completeWord = userInput.value);
+    ? (completeWord = completeWord)
+    : (completeWord = userInput.value);
   });
 };
 
 // check to see if user input matches given word
+// ----------------
+// Need to make matches append to a array and to show wpm
+// ----------------
+const correctUserInput = new Set();
+let wrongWordInputs = 0;
+
 const checkIfWordMatches = () => {
   userInput.addEventListener("keyup", () => {
-    let count = 0;
-    let word = [wordList.childNodes[count].textContent].toString().split("");
-    let user = userInput.value.split("");
-    if (word !== user) {
-      console.log(word);
-      console.log(user);
-      count++;
-    } else {
-    }
+    const word = wordList.childNodes[wordIndex].textContent;
+    const userValue = userInput.value;
+    console.log(userValue);
+    console.log(word);
+    if (word === userValue) {
+      correctUserInput.add(userValue);
+    } return;
   });
+  userInput.addEventListener('keydown', (e) => {
+    const word = wordList.childNodes[wordIndex].textContent;
+    const userValue = userInput.value;
+    if (word != userValue && e.code === "Space") {
+      wrongWordInputs++;
+      incorrectCount.textContent = wrongWordInputs;
+    } return;
+  })
 };
 
 // testing if index pair of 'words' and 'randomNumber'
@@ -66,21 +89,22 @@ const WORD_INDEX_CHECK_LIST = [];
 const check = () => {
   for (let i = 0; i < SHOWN_WORDS; i++) {
     wordList.childNodes[i] === WORD_INDEX_CHECK_LIST[i]
-      ? console.log(true)
-      : console.log(false);
+    ? console.log(true)
+    : console.log(false);
   }
-  console.log(wordList.childNodes);
-  console.log(WORD_INDEX_CHECK_LIST);
+  // console.log(wordList.childNodes);
+  // console.log(WORD_INDEX_CHECK_LIST);
 };
 
 // timer
-let time = 120;
+let time = 60;
 const countDown = () => {
   time--;
   timeLeft.innerHTML = time;
-
+  
   if (time <= 0) {
     time = 1;
+    userInput.value = `Test Finished`;
   }
 };
 const setTime = (e) => {
