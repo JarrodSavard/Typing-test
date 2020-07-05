@@ -33,8 +33,10 @@ const spaceBarEventListener = () => {
     if (e.code === "Space") {
       wordIndex++;
       userInput.value = "";
-      correctCount.textContent = `${correctUserInput.size / wrongWordInputs}%`;
-      wpmCount.textContent = correctUserInput.size.toFixed(2);
+      correctCount.textContent = (
+        correctUserInput.size / wrongWordInputs
+      ).toFixed(2);
+      wpmCount.textContent = correctUserInput.size;
       wordList.childNodes[wordIndex].classList.add("liActive");
       if (
         wordIndex >= 1 &&
@@ -68,23 +70,19 @@ const correctUserInput = new Set();
 let wrongWordInputs = 0;
 
 const checkIfWordMatches = () => {
-  userInput.addEventListener("keyup", () => {
-    const word = wordList.childNodes[wordIndex].textContent;
-    const userValue = userInput.value;
-    console.log(userValue);
-    console.log(word);
-    if (word === userValue) {
-      correctUserInput.add(userValue);
-    }
-    return;
-  });
   userInput.addEventListener("keydown", (e) => {
     const word = wordList.childNodes[wordIndex].textContent;
     const userValue = userInput.value;
+    if (word === userValue) {
+      correctUserInput.add(userValue);
+      console.log(correctUserInput);
+    }
+    // adds color styling to words after spaceBar is pressed
     if (word !== userValue && e.code === "Space") {
       wordList.childNodes[wordIndex].style.color = "red";
       wrongWordInputs++;
       incorrectCount.textContent = wrongWordInputs;
+      return;
     } else if (word === userValue && e.code === "Space") {
       wordList.childNodes[wordIndex].style.color = "green";
       return;
