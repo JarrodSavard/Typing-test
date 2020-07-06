@@ -27,9 +27,6 @@ let wordIndex = 0;
 
 const spaceBarEventListener = () => {
   userInput.addEventListener("keyup", (e) => {
-    if (e.code === "Backspace" && wordIndex === 0) {
-      return;
-    }
     if (e.code === "Space") {
       wordIndex++;
       userInput.value = "";
@@ -43,12 +40,7 @@ const spaceBarEventListener = () => {
         wordList.childNodes[wordIndex - 1].classList.contains("liActive")
       ) {
         wordList.childNodes[wordIndex - 1].classList.remove("liActive");
-      }
-    } else if (e.code === "Backspace" && userInput.value === "") {
-      wordIndex--;
-      userInput.value = "";
-      wordList.childNodes[wordIndex].classList.add("liActive");
-      if (
+      } else if (
         wordIndex >= 1 &&
         wordList.childNodes[wordIndex + 1].classList.contains("liActive")
       ) {
