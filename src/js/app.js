@@ -30,9 +30,7 @@ const spaceBarEventListener = () => {
     if (e.code === "Space") {
       wordIndex++;
       userInput.value = "";
-      correctCount.textContent = (
-        correctUserInput.size / wrongWordInputs
-      ).toFixed(2);
+      correctCount.textContent = correctUserInput.size;
       wpmCount.textContent = correctUserInput.size;
       wordList.childNodes[wordIndex].classList.add("liActive");
       if (
