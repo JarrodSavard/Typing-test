@@ -57,11 +57,48 @@ html {
   background: rgba(122, 122, 122, 0.349);
 }
 
-.word-input {
-  height: 40px;
+.reset-button {
   width: 100%;
   margin: 15px 0;
-  padding: 10px 20px;
+  padding: 5px 0px;
+  border: 2px solid white;
+  background: #0f0e0e;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  font-weight: normal;
+  color: white;
+  background: rgba(122, 122, 122, 0.349);
+  -webkit-transition: ease-out 250ms all;
+  transition: ease-out 250ms all;
+  display: none;
+}
+
+.reset-button:hover {
+  cursor: pointer;
+  background: orange;
+  color: black;
+}
+
+.test-end-text {
+  margin: 0 auto;
+  color: white;
+  text-align: center;
+  font-size: 4em;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.test-end-head {
+  margin: 0 auto;
+  color: orangered;
+  text-align: center;
+  font-size: 6em;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.word-input {
+  width: 100%;
+  margin: 15px 0;
+  padding: 5px 20px;
   border: 2px solid white;
   background: #0f0e0e;
   border-radius: 10px;
