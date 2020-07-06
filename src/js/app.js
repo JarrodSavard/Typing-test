@@ -2,6 +2,7 @@
 const wordListContainer = document.querySelector(".word-list-container");
 const wordList = document.querySelector(".word-list");
 const userInput = document.querySelector(".word-input");
+const resetButton = document.querySelector(".reset-button");
 const correctCount = document.querySelector(".correct-words-count");
 const incorrectCount = document.querySelector(".incorrect-words-count");
 const timeLeft = document.querySelector(".time-left");
@@ -80,6 +81,14 @@ const checkIfWordMatches = () => {
   });
 };
 
+// reset button
+
+const resetPageOnClick = () => {
+  resetButton.addEventListener("click", () => {
+    location.reload();
+  });
+};
+
 // testing if index's of 'words' and 'randomNumber' pair
 const SHOWN_WORDS = 125;
 const WORD_INDEX_CHECK_LIST = [];
@@ -102,11 +111,17 @@ const countDown = () => {
 
   if (time <= 0) {
     time = 1;
-    userInput.value = `Test Finished`;
+    userInput.style.display = "none";
+    userInput.value = "";
+    resetButton.style.display = "block";
+    wordListContainer.innerHTML = `
+    <p class="test-end-head">Test finished<p>
+    <p class="test-end-text">Press the button to reset the test</p>
+    `;
   }
 };
 const setTime = (e) => {
-  setInterval(countDown, 1000);
+  setInterval(countDown, 10);
 };
 const timerStartListener = () => {
   userInput.addEventListener("keydown", setTime);
@@ -122,6 +137,7 @@ const events = () => {
   checkIfWordMatches();
   timerStartListener();
   timerStopListener();
+  resetPageOnClick();
   //check();
 };
 events();
