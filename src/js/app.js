@@ -123,7 +123,7 @@ const countDown = () => {
   }
 };
 const setTime = () => {
-  setInterval(countDown, 50);
+  setInterval(countDown, 1000);
 };
 const timerStartListener = () => {
   userInput.addEventListener("keydown", setTime);
