@@ -117,11 +117,13 @@ const countDown = () => {
     wordListContainer.innerHTML = `
     <p class="test-end-head">Test finished<p>
     <p class="test-end-text">Press the button to reset the test</p>
+    <p class="test-end-show">Your scored ${correctUserInput.size} WPM</p>
+    <p class="test-end-show">You made ${wrongWordInputs} errors</p>
     `;
   }
 };
-const setTime = (e) => {
-  setInterval(countDown, 1000);
+const setTime = () => {
+  setInterval(countDown, 50);
 };
 const timerStartListener = () => {
   userInput.addEventListener("keydown", setTime);
