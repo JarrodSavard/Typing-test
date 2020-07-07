@@ -66,18 +66,18 @@ html {
     color: black;
   }
 }
-.test-end-text {
-  margin: 0 auto;
-  color: white;
-  text-align: center;
-  font-size: 4em;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
 .test-end-head {
   margin: 0 auto;
   color: orangered;
   text-align: center;
   font-size: 6em;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.test-end-text {
+  margin: 0 auto;
+  color:rgb(202, 202, 202);
+  text-align: center;
+  font-size: 3em;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -163,6 +163,14 @@ html {
 }
 .spelt-wrong {
   color: red;
+}
+.test-end-show {
+  text-align: center;
+  color: white;
+  border: 2px solid white;
+  font-size: 2.5rem;
+  margin: 20px 200px;
+  padding: 10px 0;
 }
 
 //Screen Size Styles
