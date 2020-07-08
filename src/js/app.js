@@ -129,7 +129,7 @@ const timerStartListener = () => {
   userInput.addEventListener("keydown", setTime);
 };
 const timerStopListener = () => {
-  userInput.addEventListener("keyup", () => {
+  userInput.addEventListener("keydown", () => {
     userInput.removeEventListener("keydown", setTime);
   });
 };
