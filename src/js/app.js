@@ -26,6 +26,14 @@ const data = fetch(
 let completeWord = null;
 let wordIndex = 0;
 
+const userInputFocusListener = () => {
+  userInput.addEventListener("focus", (e) => {
+    if (wordIndex === 0) {
+      wordList.childNodes[wordIndex].classList.add("liActive");
+    }
+  });
+};
+
 const spaceBarEventListener = () => {
   userInput.addEventListener("keyup", (e) => {
     if (e.code === "Space") {
@@ -66,7 +74,6 @@ const checkIfWordMatches = () => {
     const userValue = userInput.value;
     if (word === userValue) {
       correctUserInput.add(userValue);
-      console.log(correctUserInput);
     }
     // adds color styling to words after spaceBar is pressed
     if (word !== userValue && e.code === "Space") {
@@ -135,6 +142,7 @@ const timerStopListener = () => {
 };
 
 const events = () => {
+  userInputFocusListener();
   spaceBarEventListener();
   checkIfWordMatches();
   timerStartListener();
