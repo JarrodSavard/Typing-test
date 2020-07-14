@@ -76,7 +76,7 @@ html {
 
 .reset-button:hover {
   cursor: pointer;
-  background: orange;
+  background: orangered;
   color: black;
 }
 
