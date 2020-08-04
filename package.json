@@ -1,0 +1,23 @@
+{
+  "name": "typing-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JarrodSavard/Typing-test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JarrodSavard/Typing-test/issues"
+  },
+  "homepage": "https://github.com/JarrodSavard/Typing-test#readme",
+  "devDependencies": {
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  }
+}
