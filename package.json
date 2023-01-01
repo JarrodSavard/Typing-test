@@ -18,7 +18,7 @@
   "homepage": "https://github.com/JarrodSavard/Typing-test#readme",
   "devDependencies": {
     "webpack": "^5.1.2",
-    "webpack-cli": "^3.3.12",
+    "webpack-cli": "^5.0.1",
     "glob-parent": "^3.1.0"
   }
 }
